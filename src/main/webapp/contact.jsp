@@ -22,7 +22,7 @@
 	<div class = "container form-group">
 			<form class = "p-5" action= "contactme">
 			<div class="form-group">
-			    <label for="exampleInputPassword1">Your Name</label>
+			    <label for="exampleInputPassword1">Your Name </label>
 			    <input name = "name" type="text" class="form-control" id="exampleInputPassword1">
 			  </div>
 		  	<div class="form-group">
