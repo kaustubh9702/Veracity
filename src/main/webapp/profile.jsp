@@ -30,7 +30,7 @@
 		
 %>
 
-
+<main class = "bg-light">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="index.jsp"><span class = "fa fa-cubes"></span>  Veracity</a>
@@ -77,6 +77,62 @@ session.removeAttribute("msg");
 }
 %>
  
+ 
+ 
+		<div class = "container">
+		<div class = "row m-4">
+		
+				<div class = "col-md-4">
+				<div class="card  mb-3 text-center bg-light ">
+			  <div class="card-body text-secondary text-dark">
+			  <img src = "img/default.png" class = "img-fluid" style = "border-radius : 50%">
+			    <h5 class="card-title"><span class ="	fa fa-vcard-o" ></span><b>  <%= u.getName() %></b></h5>
+			    <p class="card-text"></p>
+			     <p class="card-text"><%= u.getType() %></p>
+			     	<button type="button" class="btn btn-outline-dark " data-toggle="modal" data-target="#post-modal"><b>Start a post</b></button>
+			  </div>
+			  </div>
+				<div class="list-group text-center  mt-3">
+					  <a href="#" onclick = "getPosts(0,this)" class ="c-link list-group-item list-group-item-action active " aria-current="true" >
+					<b> All posts</b>
+					  </a>
+					  <%
+					  Postdao obj = new Postdao(ConnectionProvider.getConnection());
+					  
+					  ArrayList<category> list1 = obj.getCategories();
+					  for(category e : list1){  
+					  %>
+					  <a href="#" onclick = "getPosts(<%= e.getCid() %>, this)" class=" c-link list-group-item list-group-item-action"><b> <%= e.getName() %></b></a>
+					<%
+					
+					  }
+					%>
+					
+					</div>
+					
+				</div>
+				
+				
+				
+			
+		
+				<div class = "col-md-8" >
+						<div class= "container-fluid" id = "post">
+						
+						
+						</div>
+					
+				
+				</div>
+		
+		</div> 		
+ 		
+ 		</div>
+ </main>
+ 
+ 
+ 
+ 
 
 <!-- modal -->
 
@@ -95,7 +151,7 @@ session.removeAttribute("msg");
        	<div class = "container text-center">
         	<img src = "img/default.png" class = "img-fluid" style = "border-radius : 50%">
         	<br>
-         <h3 class="modal-title " id="exampleModalLabel"><span class ="	fa fa-vcard-o" ></span>  <%= u.getName() %></h3>
+         <h3 class="modal-title " id="exampleModalLabel"><span class ="	fa fa-vcard-o" ></span>  <%= u.getName() %> </h3>
          
          <div id ="profile-details">
          <table class="table">
@@ -122,6 +178,8 @@ session.removeAttribute("msg");
 				  </tbody>
 				</table>
 				</div>
+				
+				
 				<div id ="profile-edit" style = "display : none;">
 		        	 
 						 <h4 class = "mt-2"> Edit your details</h4>
@@ -212,7 +270,7 @@ session.removeAttribute("msg");
       		
       		%>
       		
-      		<option value = "<%= e.getCid() %>"><%= e.getName() %></option>
+      		<option value = "<%= e.getCid() %>"> <%= e.getName() %></option>
       		<%
       		}
       		%>
@@ -282,6 +340,40 @@ session.removeAttribute("msg");
 					})
 				})
 				
+		</script>
+		
+		<!-- fetching data through Ajax -->
+		
+		<script>
+		
+			function getPosts(catid,temp){
+				
+				$(".c-link").removeClass('active')
+				
+				$.ajax({
+					
+					url: "Lpost.jsp",
+					data : {cid : catid},
+					success: function (data, textStatus, jqXHR){
+						console.log(data);
+						$('#post').html(data)
+						$(temp).addClass('active')
+					}
+				})
+				
+			}
+			
+			
+		
+			$(document).ready(function(e){
+				
+				let Allpost = $(".c-link")[0]
+				getPosts(0,Allpost)
+				
+				
+				
+			})
+		
 		</script>
 		
 </body>

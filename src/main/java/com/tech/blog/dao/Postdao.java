@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.tech.blog.entities.category;
 import com.tech.blog.entities.post;
 import com.tech.blog.entities.type;
+import com.tech.blog.entities.user;
 
 public class Postdao {
 	
@@ -112,4 +115,102 @@ public ArrayList<type> getType(){
 	}
 	
 
+	
+	public List<post> getpost(){
+		
+		List<post> list = new ArrayList<post> ();
+		try {
+		String q = "select * from post order by Pid desc";
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(q);
+		
+		while(rs.next()) {
+			
+			int pid = rs.getInt("Pid");
+			String title = rs.getString("Ptitle");
+			String content = rs.getString("Pcontent");
+			Timestamp t = rs.getTimestamp("Pdate");
+			int catid = rs.getInt("Pcat");
+			
+			String userid = rs.getString("userId");  
+			
+			post p = new post(pid, catid, title, content, null, t, userid);
+			
+			list.add(p);
+			
+		}
+		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	
+	
+	public ArrayList<post> getpostCategory(int catid){
+		
+		
+		ArrayList<post> list = new ArrayList<post>();
+		
+		
+		try {
+			String q = "select * from post where Pcat = ?";
+			PreparedStatement st = con.prepareStatement(q);
+			st.setInt(1, catid);
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()) {
+				
+				int pid = rs.getInt("Pid");
+				String title = rs.getString("Ptitle");
+				String content = rs.getString("Pcontent");
+				Timestamp t = rs.getTimestamp("Pdate");
+				
+				String userid = rs.getString("userId");  
+				
+				post p = new post(pid, catid, title, content, null, t, userid);
+				
+				list.add(p);
+				
+			}
+			
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		return list;
+	}
+	
+	public ArrayList<user> getUsername(String userid) {
+		
+		ArrayList<user> list = new ArrayList<user>();
+		
+		try {
+			String q = "select * from user where email = ?";
+			PreparedStatement st = con.prepareStatement(q);
+			st.setString(1, userid);
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()) {
+				
+				String name = rs.getString("name");
+				String about = rs.getString("about");
+				
+				user obj = new user(name, null, null, about);
+				
+				list.add(obj);
+				
+				
+			}
+			}	catch(Exception e ) {
+				e.printStackTrace();
+			}
+		
+		return list;
+	}
+	
 }
+
