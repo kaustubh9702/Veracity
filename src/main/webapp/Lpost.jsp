@@ -52,7 +52,7 @@
 				   </div>
 				    
 				 	 <div class="card-body">
-				      <h3 class="card-title text-center "><i><b><%= e.getPtitle() %></i></b></h3>
+				      <h3 class="card-title text-center "><i><strong><%= e.getPtitle() %></i></strong></h3>
 				      <p class="card-text"> <%= e.getPcontent() %></p>
 				    </div>
 				    <div class="card-footer text-center ">

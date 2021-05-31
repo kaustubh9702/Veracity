@@ -20,6 +20,8 @@
 <body>
 
 <%
+response.setHeader("Cache-Control" ,"no-cache,no-store,must-revalidate");	
+	
   user u = (user) session.getAttribute("currentuser");
 
 
