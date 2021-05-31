@@ -15,6 +15,7 @@ import com.tech.blog.dao.userDAO;
 import com.tech.blog.entities.message;
 import com.tech.blog.entities.user;
 import com.tech.helper.ConnectionProvider;
+import com.tech.helper.Secure;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -42,8 +43,19 @@ public class RegisterServlet extends HttpServlet {
 	
 		
 		// creating user object and passing the values
+			String hashed = null;
+			
+			try
+			{
+			Secure obj1 = new Secure();
+			 hashed = obj1.generateHash(password);
+			}
+			catch(Exception e )
+			{
+				e.printStackTrace();
+			}
 		
-		user user = new user(user_name,password,email,type); 
+		user user = new user(user_name,hashed,email,type); 
 		
 		
 		

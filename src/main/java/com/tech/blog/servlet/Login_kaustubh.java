@@ -14,6 +14,7 @@ import com.tech.blog.dao.userDAO;
 import com.tech.blog.entities.message;
 import com.tech.blog.entities.user;
 import com.tech.helper.ConnectionProvider;
+import com.tech.helper.Secure;
 
 
 
@@ -24,17 +25,30 @@ public class Login_kaustubh extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("pass");
+		String hashed = null;
+		
+		try
+		{
+		Secure obj1 = new Secure();
+		 hashed = obj1.generateHash(password);
+		 password = null;
+		}
+		catch(Exception e )
+		{
+			e.printStackTrace();
+		}
+		
+		
 		
 		HttpSession session = request.getSession();
 		
 		
 		PrintWriter out = response.getWriter();
 		
-		out.print(email);
 		
 		userDAO obj = new userDAO(ConnectionProvider.getConnection());
 		
-		user u = obj.getUserCredentials(email, password);
+		user u = obj.getUserCredentials(email, hashed);
 		
 	
 		

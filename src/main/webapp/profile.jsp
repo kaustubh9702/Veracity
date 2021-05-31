@@ -46,10 +46,6 @@
  
       
        <li class="nav-item">
-        <a class="nav-link" href="Register.jsp"><span class = "	fa fa-user-plus"></span>  Sign up</a>
-      </li>
-      
-       <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#post-modal"><span class = "	fa fa-upload"></span>  Post</a>
       </li>
      
@@ -58,6 +54,10 @@
 	<li class="nav-item">
         <a class="nav-link href="#!" data-toggle="modal" data-target="#profile-modal" ><span class = "fa fa-user-circle"></span>  <%= u.getName() %></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link href="#!"  data-toggle="modal" data-target="#delete-acc" ><span class= "fa fa-times-circle"></span> Delete Account</a>
+      </li>
+    
 	<li class="nav-item">
         <a class="nav-link" href="Logout"><span class = "fa fa-sign-out"></span>  Logout</a>
       </li>
@@ -86,7 +86,7 @@ session.removeAttribute("msg");
 				<div class="card  mb-3 text-center bg-light ">
 			  <div class="card-body text-secondary text-dark">
 			  <img src = "img/default.png" class = "img-fluid" style = "border-radius : 50%">
-			    <h5 class="card-title"><span class ="	fa fa-vcard-o" ></span><b>  <%= u.getName() %></b></h5>
+			    <h5 class="card-title"><span class ="	fa fa-registered" ></span><b>  <%= u.getName() %></b></h5>
 			    <p class="card-text"></p>
 			     <p class="card-text"><%= u.getType() %></p>
 			     	<button type="button" class="btn btn-outline-dark " data-toggle="modal" data-target="#post-modal"><b>Start a post</b></button>
@@ -130,6 +130,32 @@ session.removeAttribute("msg");
  		</div>
  </main>
  
+ 
+
+
+									<!-- Delete account Modal -->
+<div class="modal fade" id="delete-acc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+       	<h4> Are you sure you want to delete the account?</h4>
+      </div>
+      <div class= "container">
+      <div class="modal-footer text-center">
+      <form action = "deleteAcc" method ="post">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-outline-danger">Delete Account</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
  
  
  
@@ -185,15 +211,7 @@ session.removeAttribute("msg");
 						 <h4 class = "mt-2"> Edit your details</h4>
 						 <form action = "EditServlet" method = "post" >
 						 <table class = "table">
-						 
-						
-						 
-						 <tr>
-						 <td>Email: </td>
-						 
-						  <td><input type = "email" class = "form-control" name = "email" value =<%= u.getEmail() %>> </td>
-						 
-						 </tr>
+			
 						 
 						 <tr>
 						  <td>User Name: </td>
@@ -202,18 +220,13 @@ session.removeAttribute("msg");
 						 
 						 </tr>
 						 
-						 <tr>
-						  <td>Password: </td>
-						 
-						  <td><input type = "password" class = "form-control" name = "pass" value = "<%= u.getPassword() %>" > </td>
-						 
-						 </tr>
+						
 						 
 						 <tr>
 						  <td>About: </td>
 						 
 						  <td>
-						  <textarea class = "form-control" name = "type" ><%= u.getType() %></textarea> </td>
+						  <textarea class = "form-control" rows=5 name = "type" ><%= u.getType() %></textarea> </td>
 						 
 						 </tr>
 						 
@@ -231,6 +244,7 @@ session.removeAttribute("msg");
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		
         <button id ="edit-profile-button" type="button" class="btn btn-primary">Edit</button>
       </div>
     </div>
@@ -375,6 +389,8 @@ session.removeAttribute("msg");
 			})
 		
 		</script>
+		
+	
 		
 </body>
 </html>

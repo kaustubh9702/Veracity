@@ -2,6 +2,7 @@ package com.tech.blog.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,45 +12,31 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.tech.blog.dao.userDAO;
-import com.tech.blog.entities.message;
 import com.tech.blog.entities.user;
 import com.tech.helper.ConnectionProvider;
 
 
-@WebServlet("/EditServlet")
-public class EditServlet extends HttpServlet {
+@WebServlet("/deleteAcc")
+public class deleteAcc extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String username = request.getParameter("name");
-		String type = request.getParameter("type");
-	
-		
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 		
-
+		user u = (user) session.getAttribute("currentuser");
 		
-	HttpSession session = request.getSession();
-	
-	user obj = (user) session.getAttribute("currentuser");
-	
-
-	
-		obj.setName(username);
-		obj.setType(type);
+		String mail = u.getEmail();
 		
 		userDAO dao = new userDAO(ConnectionProvider.getConnection());
 		
-		if(dao.UpdateDetails(obj)) {
+		if(dao.Delete(mail)) {
 			
-			
-			message msg = new message("Profile updated successfully","success","alert-success");
-			session.setAttribute("msg", msg);
-			
-			response.sendRedirect("profile.jsp");
+			response.sendRedirect("index.jsp");
 			
 		}else {
-			out.print("error");
+			
+				out.print("error");
 		}
 		
 	}

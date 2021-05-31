@@ -101,7 +101,7 @@ public class userDAO {
 		
 		try {
 			
-			String q = "update user set name = ?, email = ? , password = ? , about = ?  where id = ?";
+			String q = "update user set name = ? , about = ?  where id = ?";
 			
 			PreparedStatement st = con.prepareStatement(q);
 			
@@ -109,15 +109,41 @@ public class userDAO {
 
 			st.setString(1, obj.getName());
 			
-			st.setString(2, obj.getEmail());
-		
-			st.setString(3, obj.getPassword());
 			
-			st.setString(4, obj.getType());
+			st.setString(2, obj.getType());
 			
-			st.setInt(5, obj.getId());
+			st.setInt(3, obj.getId());
 			
 			int rows = st.executeUpdate();
+			
+			b = true;
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return b;
+	}
+	
+	public boolean Delete(String mail) {
+		
+		boolean b = false ;
+		try {
+			
+			String q = "delete from user where email = ?";
+			String qq = "delete from post where userId = ?";
+			
+			PreparedStatement st = con.prepareStatement(q);
+			
+			PreparedStatement st1 = con.prepareStatement(qq);
+			
+			st.setString(1, mail);
+			
+			st1.setString(1, mail);
+			
+			st.executeUpdate();
+			st1.executeUpdate();
 			
 			b = true;
 			
