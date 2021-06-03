@@ -16,6 +16,12 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+
+
+
 </head>
 <body>
 
@@ -81,17 +87,17 @@ session.removeAttribute("msg");
  
  
  
-		<div class = "container">
+		
 		<div class = "row m-4">
 		
-				<div class = "col-md-4">
+				<div class = "col-md-3">
 				<div class="card  mb-3 text-center bg-light ">
 			  <div class="card-body text-secondary text-dark">
 			  <img src = "img/default.png" class = "img-fluid" style = "border-radius : 50%">
-			    <h5 class="card-title"><span class ="	fa fa-registered" ></span><b>  <%= u.getName() %></b></h5>
+			    <h5 class="card-title"><span class ="	fa fa-registered" ></span ><b>  <%= u.getName() %></b></h5>
 			    <p class="card-text"></p>
 			     <p class="card-text"><%= u.getType() %></p>
-			     	<button type="button" class="btn btn-outline-dark " data-toggle="modal" data-target="#post-modal"><b>Start a post</b></button>
+			     	<button type="button" class="btn btn-outline-dark " data-toggle="modal" data-target="#post-modal"><span class = "	fa fa-upload"></span>  <b>Share post</b></button>
 			  </div>
 			  </div>
 				<div class="list-group text-center  mt-3">
@@ -118,7 +124,7 @@ session.removeAttribute("msg");
 				
 			
 		
-				<div class = "col-md-8" >
+				<div class = "col-md-9" >
 						<div class= "container-fluid" id = "post">
 						
 						
@@ -129,7 +135,6 @@ session.removeAttribute("msg");
 		
 		</div> 		
  		
- 		</div>
  </main>
  
  

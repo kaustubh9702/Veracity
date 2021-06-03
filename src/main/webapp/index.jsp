@@ -12,21 +12,30 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<link rel="stylesheet" href="css/mystyle.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
 <title>  Veracity</title>
 </head>
 <body>
+
 <%@ include file ="normal_navbar.jsp"  %>
 
 
 <!-- Banners and login button  -->
 
 <div class = "container-fliud m-0 p-0">
-	<div class = "jumbotron">
-		<div class = "container">
-		<h3 class = "display-3">Welcome to Veracity </h3>
-		<p> A public platform where all professional and enthusiast programmers can share their knowledge.</p>
+	<div class = "jumbotron" style =" height:90vh">
+		<div class = "container h-100" >
+		<div class = "row align-items-center h-100" >
+		<div class = "col-md-12 text-center">
+		<h1  id = "content" class = " display-3">Welcome to Veracity </h1>
+		<h5> A public platform where all professional and enthusiast programmers can share their knowledge.</h5>
 		<a href = "Register.jsp" type="button" class="btn btn-outline-dark"><span class = "	fa fa-user-plus"></span>  Join the community. It's Free!</a>
-		<a href = "Login.jsp"  class="btn btn-outline-dark"><span class = "fa fa-user-o fa-spin"></span>  Login</a>
+		<a href = "Login.jsp"  class="btn btn-outline-dark mx-3"><span class = "fa fa-user-o fa-spin"></span>  Login</a>
+		</div>
+		</div>
 		</div>
 	</div>
 </div>
@@ -35,82 +44,7 @@
 
 
 
-<!-- Cards -->
 
-<div class= "container">
-  <div class="row">
-  
-    <div class="col-md-4">
-   	<div class="card" style="width: 18rem;">
-  	<div class="card-body">
-    <h5 class="card-title">Java</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-dark">Read More</a>
-  	</div>
-	</div>
-    </div>
-    
-     <div class="col-md-4">
-   	<div class="card" style="width: 18rem;">
-  	<div class="card-body">
-    <h5 class="card-title">Python</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-dark">Read More</a>
-  	</div>
-	</div>
-    </div>
-    
-     <div class="col-md-4">
-   	<div class="card" style="width: 18rem;">
-  	<div class="card-body">
-    <h5 class="card-title">CPP</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-dark">Read More</a>
-  	</div>
-	</div>
-    </div>
-    
-    </div>
-    
-    <br>
-    
-      <div class="row">
-  
-    <div class="col-md-4">
-   	<div class="card" style="width: 18rem;">
-  	<div class="card-body">
-    <h5 class="card-title">JavaScript</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-dark">Read More</a>
-  	</div>
-	</div>
-    </div>
-    
-     <div class="col-md-4">
-   	<div class="card" style="width: 18rem;">
-  	<div class="card-body">
-    <h5 class="card-title">Scala</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-dark">Read More</a>
-  	</div>
-	</div>
-    </div>
-    
-     <div class="col-md-4">
-   	<div class="card" style="width: 18rem;">
-  	<div class="card-body">
-    <h5 class="card-title">Go</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-dark">Read More</a>
-  	</div>
-	</div>
-    </div>
-    
-    </div>
-    
-    
-    </div>
-    
     
 
 
