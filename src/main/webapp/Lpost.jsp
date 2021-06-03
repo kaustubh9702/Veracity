@@ -19,7 +19,7 @@
 </head>
 
 
-
+<div class = "container">
 <div class = "rows">
 
 
@@ -55,8 +55,9 @@
 				   
 				   %> 
 				   	<h5 > <span  class = "fa fa-user-circle"><span id = "name"> <%= e1.getName()  %></span></span></h5>
-				   	<p> <%= e.getPdate() %>
-				   	<p> <%= e1.getType() %></p>
+				   	 	<p> <%= e1.getType() %></p>
+				    	<p> <i><%= e.getPdate().toLocaleString() %></i></p>
+				  
 				   
 				   <%
 				   }
@@ -65,13 +66,10 @@
 				   </div>
 				    
 				 	 <div class="card-body">
-				      <h2 id = "uni" class="card-title text-center "><%= e.getPtitle() %></h2>
-				      <h6 id= "content" class="card-text"> <%= e.getPcontent() %></h6>
+				      <h1 id = "uni" class="card-title text-center "><%= e.getPtitle() %></h1>
+				       <pre id = "content" class="card-title  "><h6><%= e.getPcontent() %></h6></pre>
 				    </div>
-				    <div class="card-footer text-center ">
-				      <a href="#!"  class =" btn btn-light btn-sm "><span class = "fa fa-thumbs-o-up"> 10</span> </a>
-				      <a href="#!"  class =" btn btn-light btn-sm  "> <span class = "fa fa-commenting"> 10</span> </a>
-				    </div>
+				    
 			
 		
 			</div>
@@ -80,5 +78,6 @@
 		<%
 	}
 	%>
+</div>
 </div>
 

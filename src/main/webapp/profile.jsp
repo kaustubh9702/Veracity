@@ -86,7 +86,7 @@ session.removeAttribute("msg");
 %>
  
  
- 
+
 		
 		<div class = "row m-4">
 		
@@ -121,9 +121,7 @@ session.removeAttribute("msg");
 				</div>
 				
 				
-				
 			
-		
 				<div class = "col-md-9" >
 						<div class= "container-fluid" id = "post">
 						
@@ -134,7 +132,7 @@ session.removeAttribute("msg");
 				</div>
 		
 		</div> 		
- 		
+
  </main>
  
  
@@ -260,7 +258,7 @@ session.removeAttribute("msg");
 
 
 
-<!--post modal -->
+					<!--post modal -->
 	
 <!-- Modal -->
 <div class="modal fade" id="post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

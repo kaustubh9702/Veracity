@@ -212,5 +212,39 @@ public ArrayList<type> getType(){
 		return list;
 	}
 	
+	
+public post getdetailspost(int Pid){
+		
+		post p = null;
+		try {
+		String q = "select * from post where Pid = ?";
+		PreparedStatement st = con.prepareStatement(q);
+		st.setInt(1, Pid);
+		ResultSet rs = st.executeQuery();
+		
+		
+		while(rs.next()) {
+			
+			int pid = rs.getInt("Pid");
+			String title = rs.getString("Ptitle");
+			String content = rs.getString("Pcontent");
+			Timestamp t = rs.getTimestamp("Pdate");
+			int catid = rs.getInt("Pcat");
+			
+			String userid = rs.getString("userId");  
+			
+			 p = new post(pid, catid, title, content, null, t, userid);
+			
+			
+		}
+		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return p;
+	}
+	
 }
 
