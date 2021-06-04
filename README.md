@@ -1,4 +1,5 @@
-![2021-06-04 (1)](https://user-images.githubusercontent.com/73957962/120783919-25a84000-c549-11eb-833e-69ed2ba47a46.png)
+![2021-06-04 (5)](https://user-images.githubusercontent.com/73957962/120784170-6dc76280-c549-11eb-8f8f-4f708921f7ab.png)
+
 
 - The project is based on MVC (Model-View-controller) design pattern, where servlets are used for processing, various entities have been created for carrying the data and JSP pages are used to display this data. 
 
@@ -29,3 +30,8 @@ Functionalities:
 - User can search blogs related to any topic.
 
 - After deleting the account  user credentials  as well as the posts will be deleted from the database.
+
+![2021-06-04](https://user-images.githubusercontent.com/73957962/120784153-6a33db80-c549-11eb-9a7d-b6e71466f6f3.png)
+![2021-06-04 (1)](https://user-images.githubusercontent.com/73957962/120783919-25a84000-c549-11eb-833e-69ed2ba47a46.png)
+![2021-06-04 (3)](https://user-images.githubusercontent.com/73957962/120784197-76b83400-c549-11eb-874a-9e58c7cf98fc.png)
+
