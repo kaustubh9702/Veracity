@@ -1,3 +1,5 @@
+![2021-06-04 (1)](https://user-images.githubusercontent.com/73957962/120783919-25a84000-c549-11eb-833e-69ed2ba47a46.png)
+
 - The project is based on MVC (Model-View-controller) design pattern, where servlets are used for processing, various entities have been created for carrying the data and JSP pages are used to display this data. 
 
 - JDBC for interacting with the database and created database for storing user credentials, blogs.
